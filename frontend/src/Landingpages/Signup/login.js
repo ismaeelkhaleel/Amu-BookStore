@@ -47,7 +47,7 @@ function Login() {
         className="card"
         style={{
           backdropFilter: "blur(10px)",
-          background: "rgba(255, 255, 255, 0.1)",
+          background: "rgba(255, 255, 255, 0.5)",
           borderRadius: "8px",
           padding: "30px",
           maxWidth: "400px",

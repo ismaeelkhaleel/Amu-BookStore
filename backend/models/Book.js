@@ -54,7 +54,7 @@ const Book = sequelize.define("Book", {
 });
 
 // Synchronize the model with the database
-sequelize.sync()
+sequelize.sync({ alter: true })
   .then(() => console.log("Book model synchronized with the database."))
   .catch((err) => console.error("Error syncing the Book model:", err));
 

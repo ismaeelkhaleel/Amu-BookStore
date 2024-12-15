@@ -29,7 +29,7 @@ const Feedback = sequelize.define("Feedback", {
   },
 });
 
-sequelize.sync()
+sequelize.sync({ alter: true })
   .then(() => console.log("feedback model synchronized with the database."))
   .catch((err) => console.error("Error syncing the User model:", err));
 // Export the model

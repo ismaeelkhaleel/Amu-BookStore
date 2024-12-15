@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const User = require("../models/User"); // Ensure the path is correct
+const User = require("../models/User"); // Replace with the correct path
 
 const authenticateUser = async (req, res, next) => {
   const token = req.headers.authorization?.split(" ")[1];
@@ -10,18 +10,24 @@ const authenticateUser = async (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const user = await User.findByPk(decoded.id); // Check if `findByPk` is used correctly
+
+    if (!decoded.id) {
+      return res.status(400).json({ msg: "Invalid token structure, no user ID found" });
+    }
+
+    const user = await User.findByPk(decoded.id);
 
     if (!user) {
       return res.status(404).json({ msg: "User not found" });
     }
 
-    req.user = user; // Attach user to the request object
+    req.user = user;
     next();
   } catch (error) {
     console.error("Authentication error:", error);
-    res.status(401).json({ msg: "Token is not valid" });
+    res.status(401).json({ msg: "Token is not valid or expired" });
   }
 };
 
+// Export the middleware
 module.exports = authenticateUser;

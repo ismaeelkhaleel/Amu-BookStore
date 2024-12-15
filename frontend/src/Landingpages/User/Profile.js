@@ -6,10 +6,9 @@ function Profile() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [editMode, setEditMode] = useState(false);
+
     const [formData, setFormData] = useState({
         name: "",
-        email: "",
-        role: "",
         department: "",
         course: "",
     });
@@ -84,7 +83,7 @@ function Profile() {
             });
 
             // Update the profile state with the response data
-            setCurrentUser(response.data.user);
+            setCurrentUser(response.data.user); // Correct the response path
             setError(null);
             setEditMode(false); // Exit edit mode after successful update
         } catch (err) {
@@ -107,9 +106,9 @@ function Profile() {
                 <div className="card card-body mt-5 mb-5">
                     <h1>Profile</h1>
                     {editMode ? (
-                        <form className="edit_profile"onSubmit={handleSubmit}>
+                        <form className="edit_profile" onSubmit={handleSubmit}>
                             <div>
-                            <label for="name"><b>Name:</b></label><br></br>
+                                <label for="name"><b>Name:</b></label><br></br>
                                 <input
                                     type="text"
                                     name="name"
@@ -119,17 +118,7 @@ function Profile() {
                                 />
                             </div>
                             <div>
-                            <label for="email"><b>Email:</b></label><br></br>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    id="email"
-                                    value={formData.email}
-                                    onChange={handleInputChange}
-                                />
-                            </div>
-                            <div>
-                            <label for="department"><b>Department:</b></label><br></br>
+                                <label for="department"><b>Department:</b></label><br></br>
                                 <input
                                     type="text"
                                     name="department"
@@ -156,8 +145,8 @@ function Profile() {
                     ) : (
                         <div>
                             <p><strong>Name:</strong> {currentUser.name}</p>
+                            <p><strong>Enrollment:</strong> {currentUser.enrollment}</p>
                             <p><strong>Email:</strong> {currentUser.email}</p>
-                            <p><strong>Role:</strong> {currentUser.role}</p>
                             <p><strong>Course:</strong> {currentUser.course || "N/A"}</p>
                             <p><strong>Department:</strong> {currentUser.department || "N/A"}</p>
                             <button className="btn btn-outline-success" onClick={handleEdit}>Edit Profile</button>

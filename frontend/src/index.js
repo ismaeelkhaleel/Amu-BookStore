@@ -3,8 +3,6 @@ import ReactDOM from "react-dom/client";
 import Navbar from "./Navbar.js";
 import Footer from "./Footer.js";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { motion } from "framer-motion"; // Import framer-motion
-
 import Homepage from "./Landingpages/Home/Homepage.js";
 import "./index.css";
 import Feedback from "./Landingpages/Feedback/feedback.js";
@@ -13,12 +11,14 @@ import Login from "./Landingpages/Signup/login.js";
 import Addbook from "./Landingpages/Book/Addbook.js";
 import Faculty from "./Landingpages/Faculty/Faculty.js";
 import Department from "./Landingpages/Faculty/Department.js";
-import DeptBook  from "./Landingpages/Book/DeptBook.js";
+import DeptBook from "./Landingpages/Book/DeptBook.js";
 import Terms from "./Landingpages/Security/Terms.js";
 import Privacy from "./Landingpages/Security/Privacy.js";
 import Books from "./Landingpages/Book/Books.js";
 import Profile from "./Landingpages/User/Profile.js";
 import BookDetail from "./Landingpages/Book/Bookdeatil.js";
+import ForgotPassword from "./Landingpages/Signup/Forgot.js";
+import ResetPassword from "./Landingpages/Signup/Reset.js";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -27,173 +27,90 @@ root.render(
     <Routes>
       <Route
         path="/"
-        element={
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Homepage />
-          </motion.div>
-        }
+        element={<Homepage />}
       />
       <Route
         path="/feedback"
         element={
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Feedback />
-          </motion.div>
+          <Feedback />
         }
       />
       <Route
         path="/signup"
         element={
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Signup />
-          </motion.div>
+          <Signup />
         }
       />
       <Route
         path="/login"
         element={
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Login />
-          </motion.div>
+          <Login />
         }
       />
       <Route
         path="/addbook"
         element={
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Addbook />
-          </motion.div>
+          <Addbook />
         }
       />
       <Route
         path="/faculties"
         element={
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Faculty />
-          </motion.div>
+          <Faculty />
         }
       />
       <Route
         path="/departments/:facultyId"
         element={
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Department />
-          </motion.div>
+          <Department />
         }
       />
       <Route
         path="/books/:departmentName"
         element={
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <DeptBook />
-          </motion.div>
+          <DeptBook />
         }
       />
       <Route
         path="/security/terms&conditions"
         element={
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Terms />
-          </motion.div>
+          <Terms />
         }
       />
       <Route
         path="/security/privacypolicy"
         element={
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Privacy />
-          </motion.div>
+          <Privacy />
         }
       />
       <Route
         path="/books"
         element={
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Books />
-          </motion.div>
+          <Books />
         }
       />
       <Route
         path="/books/:bookId"
         element={
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <BookDetail />
-          </motion.div>
+          <BookDetail />
         }
       />
       <Route
         path="/profile"
         element={
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Profile />
-          </motion.div>
+          <Profile />
         }
       />
+      <Route
+        path="/forgot-password"
+        element={
+          <ForgotPassword />
+        } />
+        <Route
+        path="/reset-password"
+        element={
+          <ResetPassword />
+        } />
     </Routes>
     <Footer />
   </BrowserRouter>

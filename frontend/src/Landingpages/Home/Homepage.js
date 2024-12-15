@@ -37,12 +37,12 @@ function HomePage() {
             </h6>
             <a href="/books">
               <button className="btn btn-outline-primary home-btn">
-                Explore Books&nbsp;<i class="fa-solid fa-arrow-right"></i>
+                Explore Books&nbsp;<i className="fa-solid fa-arrow-right"></i>
               </button>
             </a>
             <a href="/addbook">
               <button className="btn btn-outline-success home-btn">
-                Add Book&nbsp;<i class="fa-solid fa-upload"></i>
+                Add Book&nbsp;<i className="fa-solid fa-upload"></i>
               </button>
             </a>
           </div>
